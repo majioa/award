@@ -1,0 +1,20 @@
+ww	proc	near
+	push	ax
+	PUSH	DX
+ww1:
+	lodsb
+	or	al,al
+	je	wwe
+	CALL	WS
+	jmp	short ww1
+wwe:
+	POP	DX
+	pop	ax
+	ret
+endp
+ws	proc
+	mov	ah,6
+	mov	dl,al
+	int	21h
+	ret
+endp
